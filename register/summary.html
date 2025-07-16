@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ตารางเรียน</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        td[rowspan] {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+
+    <main>
+        <h2 style="text-align:center;">ตารางเรียน</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>วัน/เวลา</th>
+                    <th>08:00 - 10:00</th>
+                    <th>10:00 - 12:00</th>
+                    <th>12:00 - 13:00</th>
+                    <th>13:00 - 15:00</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>จันทร์</td>
+                    <td>CS103</td>
+                    <td></td>
+                    <td rowspan="5">พักกลางวัน</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>อังคาร</td>
+                    <td></td>
+                    <td></td>
+                    <td>CS101</td>
+                </tr>
+                <tr>
+                    <td>พุธ</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>พฤหัสบดี</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ศุกร์</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
