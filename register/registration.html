@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ลงทะเบียนเรียน</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 1rem auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        td[rowspan] {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>
+
+    <main>
+        <h2>ลงทะเบียนเรียน</h2>
+        <section>
+            <h3>วิชาที่เปิดให้ลงทะเบียน</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>รหัสวิชา</th>
+                        <th>ชื่อวิชา</th>
+                        <th>หน่วยกิต</th>
+                        <th>สถานะ</th>
+                        <th>ดำเนินการ</th>
+                    </tr>
+                </thead>
+                <!-- อันนี้ก็จำไม่ได้ครับ พยายามดูหลายๆช่องก็ดึงมา -->
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>CS101</td>
+                        <td>พื้นฐานวิทยาการคอมพิวเตอร์</td>
+                        <td>3</td>
+                        <td>เปิด</td>
+                        <td><button>เพิ่ม</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CS102</td>
+                        <td>โครงสร้างข้อมูล</td>
+                        <td>3</td>
+                        <td>เต็ม</td>
+                        <td><button disabled>เต็ม</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h3>รายวิชาที่เลือกไว้</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>รหัสวิชา</th>
+                        <th>ชื่อวิชา</th>
+                        <th>หน่วยกิต</th>
+                        <th>ดำเนินการ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>CS103</td>
+                        <td>อัลกอริทึม</td>
+                        <td>3</td>
+                        <td><button>ลบ</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="summary-button" onclick="location.href='summary.html'">ไปยังสรุป</button>
+        </section>
+    </main>
+</body>
+</html>
