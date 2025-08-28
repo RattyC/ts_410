@@ -18,9 +18,14 @@ const employees: Employee[] = [
     { id: 3, name: "Charlie", position: "Manager", salary: 80000 },
 ];
 
+// Precompute a lookup map for O(1) name searches (case-insensitive)
+const employeeByName = new Map<string, Employee>(
+    employees.map((e) => [e.name.toLowerCase(), e])
+);
+
 function findEmployeeByName(name: string): Employee | undefined {
     const q = name.trim().toLowerCase();
-    return employees.find((emp) => emp.name.toLowerCase() === q);
+    return employeeByName.get(q);
 }
 
 // แสดงผลแบบจัดรูปเงินเดือน
@@ -28,7 +33,8 @@ const money = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 //แสดงผลข้อมูลพนักงานทั้งหมด
 
 console.log("All Employees:");
-for (const emp of employees) {
+for (let i = 0; i < employees.length; i++) {
+    const emp = employees[i];
     console.log(`- ${emp.name}, Position: ${emp.position}, Salary: ${money.format(emp.salary)}`);
 }
 //แสดงผลการค้นหาพนักงาน 
